@@ -16,3 +16,4 @@ services:
     environment:
       # - ROS_DOMAIN_ID=228
       - DISPLAY
+    command: sleep 3600
