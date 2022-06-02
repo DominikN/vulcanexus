@@ -1,6 +1,6 @@
 # Quick Start
-# $ xhost local:root
-# $ docker compose -f compose.pc.yaml up
+# $ xhost +
+# $ docker compose up
 
 version: "2.3"
 
@@ -8,12 +8,11 @@ services:
 
   # ROS Galactic
   vulcanexus:
-    build: .
+    image: donowak/vulcanexus
     network_mode: host
     ipc: host
     volumes: 
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
     environment:
-      # - ROS_DOMAIN_ID=228
       - DISPLAY
-    command: sleep 3600
+    command: fastdds_monitor
