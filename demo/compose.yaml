@@ -1,0 +1,28 @@
+# Quick Start
+# $ xhost +
+# $ docker compose up
+
+version: "2.3"
+
+services:
+
+  # ROS Galactic
+  vulcanexus:
+    image: donowak/vulcanexus
+    volumes: 
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    environment:
+      - DISPLAY
+    command: fastdds_monitor
+
+  talker:
+    build: .
+    environment:
+      - FASTDDS_STATISTICS
+    command: ros2 run demo_nodes_cpp talker
+
+  listener:
+    build: .
+    environment:
+      - FASTDDS_STATISTICS
+    command: ros2 run demo_nodes_cpp listener
