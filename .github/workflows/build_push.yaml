@@ -34,8 +34,8 @@ jobs:
       with:
         context: .
         file: ./Dockerfile
-        platforms: linux/amd64
+        platforms: linux/amd64, linux/arm64
         push: true
-        tags: donowak/vulcanexus:latest
-        cache-from: type=registry,ref=donowak/vulcanexus:latest
+        tags: donowak/vulcanexus:humble
+        cache-from: type=registry,ref=donowak/vulcanexus:humble
         cache-to: type=inline
